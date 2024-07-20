@@ -82,8 +82,8 @@ Some IMEs provide a CLI program to switch mode.
 - [macism](https://github.com/laishulu/macism): for macOS
 - [im-select](https://github.com/daipeihust/im-select): for macOS and Windows
 - `ibus engine`: for ibus
-- `g3kb-switch`: for ibus
-- `xkb-switch`: for xim
+- `g3kb-switch`: for ibus, and provide a DLL
+- `xkb-switch`: for xim, and provide a DLL
 - `fcitx-remote`: for fcitx5
 
 Some Vim plugins use CLI:
@@ -94,12 +94,11 @@ Some Vim plugins use CLI:
 
 #### dbus
 
-This plugin does it for:
-
-- ibus:
-  [gnome shell >= 41 don't allow user eval any javascript in unsafe mode](https://github.com/lyokha/g3kb-switch#gnome-45-and-newer).
-  Install some gnome extensions like
-  [g3kb-switch](https://github.com/lyokha/g3kb-switch) or
-  [unsafe-mode-menu](https://github.com/linushdot/unsafe-mode-menu) to avoid it.
-- fcitx5
-- fcitx5-rime
+- [vim-xkbswitch](https://github.com/lyokha/vim-xkbswitch): support g3kb-switch,
+  xkb-switch by their DLLs
+- [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): support fcitx. written in
+  python
+- This plugin supports
+  - g3kb-switch
+  - fcitx5
+  - fcitx5-rime

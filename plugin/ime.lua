@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 vim.api.nvim_create_autocmd("CmdlineEnter", {
     group = augroup_id,
     callback = function()
-        if ime.insert_is_not_ascii and vim.fn.reg_executing() == '' and ime.is_ascii() then
+        if ime.cmd_is_not_ascii and vim.fn.reg_executing() == '' and ime.is_ascii() then
             ime.disable_ascii()
             ime.cmd_is_not_ascii = false
         end

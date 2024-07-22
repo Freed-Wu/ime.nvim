@@ -113,16 +113,6 @@ Some Vim plugins use CLI:
   - fcitx5
   - fcitx5-rime
 
-## Dependencies
-
-- [gobject-introspection](https://gi.readthedocs.io/): lgi needs it
-
-```lua
-require'lgi.core'.gi.require'GObject'
-```
-
-shouldn't return error.
-
 ## Install
 
 ### rocks.nvim
@@ -155,3 +145,7 @@ $ luarocks --lua-version 5.1 --local --tree ~/.local/share/nvim/rocks install im
 # ~/.local/share/nvim/rocks is the default rocks tree path
 # you can change it according to your vim.g.rocks_nvim.rocks_path
 ```
+
+For NixOS, `export $GI_TYPELIB_PATH` in your shell profile to make
+`require'dbus_proxy'` work. Refer my
+[`~/.bash_profile`](https://github.com/Freed-Wu/Freed-Wu/blob/main/.bash_profile).

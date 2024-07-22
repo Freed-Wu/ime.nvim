@@ -113,6 +113,19 @@ Some Vim plugins use CLI:
   - fcitx5
   - fcitx5-rime
 
+## Dependencies
+
+```sh
+# Ubuntu
+sudo apt install libgirepository1.0-dev
+# ArchLinux
+sudo pacman -S libgirepository
+# Android Termux
+apt install gobject-introspection
+# Nix
+# use nix-shell to create a virtual environment then build
+```
+
 ## Install
 
 ### rocks.nvim

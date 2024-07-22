@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get -y update
-          sudo apt-get -y install gobject-introspection
+          sudo apt-get -y install libgirepository1.0-dev
       - uses: nvim-neorocks/luarocks-tag-release@v5
         env:
           LUAROCKS_API_KEY: ${{secrets.LUAROCKS_API_KEY}}

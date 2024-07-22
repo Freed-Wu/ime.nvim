@@ -100,9 +100,9 @@ Some Vim plugins use CLI:
 
 - [vim-xkbswitch](https://github.com/lyokha/vim-xkbswitch): support g3kb-switch,
   xkb-switch by their DLLs
-- [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): support fcitx. written in
-  python
-- This plugin supports
+- [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): support fcitx and
+  fcitx5-rime. written in python
+- This plugin: support
   - g3kb-switch
   - fcitx5
   - fcitx5-rime

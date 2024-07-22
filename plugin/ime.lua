@@ -1,8 +1,8 @@
 -- luacheck: ignore 113
 ---@diagnostic disable: undefined-global
-local ime = require 'ime'
+local ok, ime = pcall(require, "ime")
 
-if ime == nil then
+if not ok or ime == nil or type(ime) == "string" then
     return
 end
 local augroup_id = vim.api.nvim_create_augroup("ime", {})

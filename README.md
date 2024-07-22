@@ -53,6 +53,9 @@ Currently, we have two schemes to realize it:
 
 ![IME inside Vim](https://github.com/user-attachments/assets/e35e9848-ba5d-478c-be80-953830cd8a65)
 
+- no dependencies of GUI
+- support remote machines: ssh, telnet, ...
+
 1. Vim passes user's input to IME by librime/dbus
 2. IME passes the result to Vim by librime/dbus
 3. Vim draw UI of Vim IME window
@@ -76,6 +79,9 @@ external IME.
 ### IME outside Vim
 
 ![IME outside Vim](https://github.com/user-attachments/assets/1f4ed782-9aa2-49ab-8ed7-be0c4a3f0c2a)
+
+- support more hotkeys
+- same settings as IME for other windows
 
 1. call IME to switch back to ASCII mode when `InsertLeave` by CLI/dbus
 

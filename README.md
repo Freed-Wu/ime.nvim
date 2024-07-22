@@ -112,3 +112,46 @@ Some Vim plugins use CLI:
   - g3kb-switch
   - fcitx5
   - fcitx5-rime
+
+## Dependencies
+
+- [gobject-introspection](https://gi.readthedocs.io/): lgi needs it
+
+```lua
+require'lgi.core'.gi.require'GObject'
+```
+
+shouldn't return error.
+
+## Install
+
+### rocks.nvim
+
+#### Command style
+
+```vim
+:Rocks install ime.nvim
+```
+
+#### Declare style
+
+`~/.config/nvim/rocks.toml`:
+
+```toml
+[plugins]
+"ime.nvim" = "scm"
+```
+
+Then
+
+```vim
+:Rocks sync
+```
+
+or:
+
+```sh
+$ luarocks --lua-version 5.1 --local --tree ~/.local/share/nvim/rocks install ime.nvim
+# ~/.local/share/nvim/rocks is the default rocks tree path
+# you can change it according to your vim.g.rocks_nvim.rocks_path
+```

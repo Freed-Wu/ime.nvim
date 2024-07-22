@@ -1,10 +1,7 @@
 -- luacheck: ignore 113
 ---@diagnostic disable: undefined-global
-local ok, ime = pcall(require, "ime")
+local ime = require "ime"
 
-if not ok or ime == nil or type(ime) == "string" then
-    return
-end
 local augroup_id = vim.api.nvim_create_augroup("ime", {})
 vim.api.nvim_create_autocmd("InsertLeavePre", {
     group = augroup_id,

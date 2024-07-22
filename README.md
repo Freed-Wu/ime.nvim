@@ -117,11 +117,12 @@ Some Vim plugins use CLI:
 
 ```sh
 # Ubuntu
-sudo apt install libgirepository1.0-dev
+sudo apt-get -y install libgirepository1.0-dev libgirepository-1.0-1
+sudo apt-mark auto libgirepository1.0-dev
 # ArchLinux
 sudo pacman -S libgirepository
 # Android Termux
-apt install gobject-introspection
+apt-get -y install gobject-introspection
 # Nix
 # use nix-shell to create a virtual environment then build
 ```

@@ -89,6 +89,7 @@ external IME.
 
 Some IMEs provide a CLI program to switch mode.
 
+- [issw](https://github.com/vovkasm/input-source-switcher): for macOS
 - [macism](https://github.com/laishulu/macism): for macOS
 - [im-select](https://github.com/daipeihust/im-select): for macOS and Windows
 - `ibus engine`: for ibus
@@ -105,7 +106,8 @@ Some Vim plugins use CLI:
 #### dbus
 
 - [vim-xkbswitch](https://github.com/lyokha/vim-xkbswitch): support g3kb-switch,
-  xkb-switch by their DLLs
+  xkb-switch and issw by their DLLs, where g3kb-switch utilizes dbus and is
+  written in C
 - [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): support fcitx and
   fcitx5-rime. written in python
 - This plugin: support

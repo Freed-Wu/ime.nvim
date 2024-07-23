@@ -21,7 +21,7 @@ function M:disable_ascii()
 end
 
 function M:is_ascii()
-  return M.proxy:State() == 2
+  return M.proxy:State() == 1
 end
 
 function M:current()

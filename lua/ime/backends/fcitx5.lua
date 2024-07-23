@@ -27,7 +27,7 @@ end
 function M:current()
   local im = M.proxy:CurrentInputMethod()
   if im == 'rime' then
-    im = im .. ':' .. require 'ime.proxies.fcitx5-rime'.proxy:current()
+    im = im .. ':' .. require 'ime.backends.fcitx5-rime':current()
   end
   return im
 end

@@ -15,7 +15,8 @@ local proxy = p.Proxy:new(
     bus = p.Bus.SESSION,
     name = "org.freedesktop.IBus",
     interface = "org.freedesktop.IBus",
-    path = proxy0:CurrentInputContext()
+    path = proxy0:CurrentInputContext(),
+    flags = lgi.Gio.DBusProxyFlags.DO_NOT_AUTO_START
   }
 )
 local M = {

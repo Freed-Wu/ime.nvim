@@ -1,11 +1,13 @@
 -- luacheck: ignore 212/self
+local lgi = require "lgi"
 local p = require "dbus_proxy"
 local proxy0 = p.Proxy:new(
   {
     bus = p.Bus.SESSION,
     name = "org.freedesktop.IBus",
     interface = "org.freedesktop.IBus",
-    path = "/org/freedesktop/IBus"
+    path = "/org/freedesktop/IBus",
+    flags = lgi.Gio.DBusProxyFlags.DO_NOT_AUTO_START
   }
 )
 local proxy = p.Proxy:new(

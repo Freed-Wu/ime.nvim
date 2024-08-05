@@ -32,4 +32,6 @@ function M:current()
   return im
 end
 
+M:current()
+
 return M

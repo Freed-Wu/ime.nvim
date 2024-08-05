@@ -35,4 +35,6 @@ function M:current()
   return ""
 end
 
+M:current()
+
 return M

@@ -28,4 +28,6 @@ function M:current()
   return M.proxy:GetCurrentSchema()
 end
 
+M:current()
+
 return M

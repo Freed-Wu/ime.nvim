@@ -1,6 +1,9 @@
 -- luacheck: ignore 113
 ---@diagnostic disable: undefined-global
 local ime = require "ime"
+if type(ime) ~= "table" then
+    return
+end
 
 local augroup_id = vim.api.nvim_create_augroup("ime", {})
 vim.api.nvim_create_autocmd("InsertLeavePre", {

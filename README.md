@@ -114,6 +114,7 @@ Some Vim plugins use CLI:
   - g3kb-switch
   - fcitx5
   - fcitx5-rime
+  - ibus
 
 ## Dependencies
 

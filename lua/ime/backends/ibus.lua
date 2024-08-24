@@ -2,21 +2,21 @@
 ---@diagnostic disable: undefined-global
 local lgi = require "lgi"
 local p = require "dbus_proxy"
--- https://github.com/stefano-m/lua-dbus_proxy/issues/13
+local DBUS_SESSION_BUS_ADDRESS = ""
 if vim then
     local path = vim.fs.find(function(_, _) return true end,
         { path = vim.fs.joinpath(os.getenv("HOME"), ".config", "ibus", "bus") })[1]
     if path then
         for _, line in ipairs(vim.fn.readfile(path)) do
             if line:match("IBUS_ADDRESS=") then
-                vim.env.DBUS_SESSION_BUS_ADDRESS = line:gsub("IBUS_ADDRESS=", "")
+                DBUS_SESSION_BUS_ADDRESS = line:gsub("IBUS_ADDRESS=", "")
             end
         end
     end
 end
 local proxy = p.Proxy:new(
     {
-        bus = p.Bus.SESSION,
+        bus = p.Bus[DBUS_SESSION_BUS_ADDRESS],
         name = "org.freedesktop.IBus",
         interface = "org.freedesktop.IBus",
         path = "/org/freedesktop/IBus",

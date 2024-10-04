@@ -4,8 +4,9 @@ local lgi = require "lgi"
 local p = require "dbus_proxy"
 local DBUS_SESSION_BUS_ADDRESS = ""
 if vim then
-    local path = vim.fs.find(function(_, _) return true end,
-        { path = vim.fs.joinpath(os.getenv("HOME"), ".config", "ibus", "bus") })[1]
+    local paths = vim.fs.find(function(_, _) return true end,
+        { path = vim.fs.joinpath(os.getenv("HOME"), ".config", "ibus", "bus") })
+    local path = paths[#paths]
     if path then
         for _, line in ipairs(vim.fn.readfile(path)) do
             if line:match("IBUS_ADDRESS=") then

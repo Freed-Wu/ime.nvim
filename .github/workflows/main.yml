@@ -19,6 +19,7 @@ jobs:
         run: |
           sudo apt-get -y update
           sudo apt-get -y install libgirepository1.0-dev
+      # https://github.com/Freed-Wu/ime.nvim/issues/2
       - uses: nvim-neorocks/luarocks-tag-release@v5
         env:
           LUAROCKS_API_KEY: ${{secrets.LUAROCKS_API_KEY}}
@@ -28,7 +29,7 @@ jobs:
             --force
           version: scm
           dependencies: |
-            dbus_proxy
+            dbus_proxy >= 0.10.4
             lua-cjson
       - uses: nvim-neorocks/luarocks-tag-release@v5
         env:
@@ -38,5 +39,5 @@ jobs:
           extra_luarocks_args: |
             --force
           dependencies: |
-            dbus_proxy
+            dbus_proxy >= 0.10.4
             lua-cjson

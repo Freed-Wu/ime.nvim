@@ -17,7 +17,8 @@ if vim then
 end
 local proxy = p.Proxy:new(
     {
-        bus = p.Bus[DBUS_SESSION_BUS_ADDRESS],
+        bus = p.Bus.new(DBUS_SESSION_BUS_ADDRESS,
+            lgi.Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT + lgi.Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION),
         name = "org.freedesktop.IBus",
         interface = "org.freedesktop.IBus",
         path = "/org/freedesktop/IBus",

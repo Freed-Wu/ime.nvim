@@ -146,7 +146,7 @@ We can create:
 #### LSP
 
 - [ds-pinyin-lsp](https://github.com/iamcco/ds-pinyin-lsp): only support full
-  piyin.
+  pinyin.
 
 #### [coc.nvim](https://github.com/neoclide/coc.nvim)
 

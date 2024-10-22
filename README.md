@@ -116,11 +116,16 @@ Some Vim plugins use CLI:
   - fcitx5: with or without rime input schema
   - ibus
   - gnome-shell: you can get IME information from gnome-shell whatever you use
-    which IME. However, `gnome-shell >= 41` regards getting IME information as
-    an unsafe behaviour and
-    [forbids it](https://github.com/lyokha/g3kb-switch#gnome-45-and-newer).
-    Try [unsafe-mode-menu](https://github.com/linushdot/unsafe-mode-menu)
-  - g3kb-switch: use a gnome extension to bypass the prohibit of gnome-shell.
+    which IME. You need
+    [unsafe-mode-menu](https://github.com/linushdot/unsafe-mode-menu)
+    to open unsafe mode in latest gnome-shell.
+  - g3kb-switch: or use it to bypass security prohibit.
+
+> In Gnome 41 and newer, the switcher will only work with G3kbSwitch Gnome Shell
+> extension, because method org.gnome.Shell.Eval which was used in the original
+> implementation of the switcher is now disabled for security reasons
+>
+> -- [g3kb-switch](https://github.com/lyokha/g3kb-switch#gnome-45-and-newer)
 
 ### single-mode IME
 
@@ -132,7 +137,17 @@ Editor can provide a popup menu to let user select candidate. If user use
 <kbd>Ctrl</kbd> + <kbd>P</kbd>/<kbd>N</kbd> to select, input CJKV characters.
 Otherwise, input ASCII characters.
 
+- more key pressing, the 10-th candidation need 10 times
+  <kbd>Ctrl</kbd> + <kbd>N</kbd>
+- ASCII characters cannot be near CJKV characters.
+  `hi nihao` will complete `nihao`, `hinihao` will complete `hinihao`.
+  However, it shouldn't happen. Because:
+
 <!-- markdownlint-enable MD033 -->
+
+> 中英文之間需要增加空格
+>
+> -- [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%B9%8B%E9%96%93%E9%9C%80%E8%A6%81%E5%A2%9E%E5%8A%A0%E7%A9%BA%E6%A0%BC)
 
 We can create:
 

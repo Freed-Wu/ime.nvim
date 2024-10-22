@@ -33,11 +33,13 @@ Switch back from IME after `InsertLeave`. Powered by dbus.
 
 ## Introduction
 
+### Multi-mode IME
+
 - Vim (include other editors who have a vim emulator) is mulit-mode editor:
   - insert mode
   - normal mode
   - ...
-- IME is also mulit-mode:
+- IME is also multi-mode mostly:
   - ASCII mode
   - CJKV mode
   - ...
@@ -49,7 +51,7 @@ not response any CJKV character. So we must switch back from IME after
 
 Currently, we have two schemes to realize it:
 
-### IME inside Vim
+#### IME inside Vim
 
 ![IME inside Vim](https://github.com/user-attachments/assets/e35e9848-ba5d-478c-be80-953830cd8a65)
 
@@ -61,14 +63,14 @@ Currently, we have two schemes to realize it:
 3. Vim draw UI of Vim IME window
 4. When user `InsertLeave`, we close Vim IME window.
 
-#### [librime](https://github.com/rime/librime)
+##### [librime](https://github.com/rime/librime)
 
 librime is a library for creating IME.
 
 - [coc-rime](https://github.com/tonyfettes/coc-rime): written in javascript
 - [rime.nvim](https://github.com/Freed-Wu/rime.nvim): written in lua
 
-#### [dbus](https://dbus.freedesktop.org/)
+##### [dbus](https://dbus.freedesktop.org/)
 
 dbus is an inter process communication system. we can communicate with an
 external IME.
@@ -76,7 +78,7 @@ external IME.
 - [fcitx5.nvim](https://github.com/tonyfettes/fcitx5.nvim): for fcitx5
 - [fcitx5-ui.nvim](https://github.com/black-desk/fcitx5-ui.nvim): for fcitx5
 
-### IME outside Vim
+#### IME outside Vim
 
 ![IME outside Vim](https://github.com/user-attachments/assets/1f4ed782-9aa2-49ab-8ed7-be0c4a3f0c2a)
 
@@ -85,7 +87,7 @@ external IME.
 
 1. call IME to switch back to ASCII mode when `InsertLeave` by CLI/dbus
 
-#### CLI
+##### CLI
 
 Some IMEs provide a CLI program to switch mode.
 
@@ -103,7 +105,7 @@ Some Vim plugins use CLI:
 - [im-select.nvim](https://github.com/keaising/im-select.nvim): support
   im-select, ibus, fcitx
 
-#### dbus
+##### dbus
 
 - [vim-xkbswitch](https://github.com/lyokha/vim-xkbswitch): support g3kb-switch,
   xkb-switch and issw by their DLLs, where g3kb-switch utilizes dbus and is
@@ -111,10 +113,60 @@ Some Vim plugins use CLI:
 - [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): support fcitx and
   fcitx5-rime. written in python
 - This plugin: support
-  - g3kb-switch
-  - fcitx5
-  - fcitx5-rime
+  - fcitx5: with or without rime input schema
   - ibus
+  - gnome-shell: `gnome-shell >= 41` regards getting IME information as unsafe
+    behaviour and
+    [forbids it](https://github.com/lyokha/g3kb-switch#gnome-45-and-newer).
+    Try [unsafe-mode-menu](https://github.com/linushdot/unsafe-mode-menu)
+  - g3kb-switch: use a gnome extension to bypass unsafe behaviour of
+    gnome-shell.
+
+### single-mode IME
+
+![single-mode IME](https://user-images.githubusercontent.com/32936898/201919443-6007f9bd-8c29-4804-9911-2e0a59a83e17.jpg)
+
+<!-- markdownlint-disable MD033 -->
+
+Editor can provide a popup menu to let user select candidate. If user use
+<kbd>Ctrl</kbd> + <kbd>P</kbd>/<kbd>N</kbd> to select, input CJKV characters.
+Otherwise, input ASCII characters.
+
+<!-- markdownlint-enable MD033 -->
+
+We can create:
+
+- a language server to support all editors which supports LSP.
+  The editor will manage the popup menu according to LSP.
+- an editor specific plugin.
+  - register a completion source of other editor plugins which manage the popup
+    menu
+  - manage the popup menu by itself
+
+#### LSP
+
+- [ds-pinyin-lsp](https://github.com/iamcco/ds-pinyin-lsp): only support full
+  piyin.
+
+#### [coc.nvim](https://github.com/neoclide/coc.nvim)
+
+- [coc-rime](https://github.com/tonyfettes/coc-rime): written in javascript
+
+#### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+
+- [cmp-rime](https://github.com/Ninlives/cmp-rime): written in python
+- [rime.nvim](https://github.com/Freed-Wu/rime.nvim#nvim-cmp): written in lua
+
+##### Manage popup menu by itself
+
+Manage popup menu by itself will result in
+[the conflict with other editor plugins which manage the popup menu](https://github.com/neoclide/coc-snippets/issues/137),
+such as LSP framework.
+
+> Sorry, you have to make the choice.
+
+- [vimIM](https://github.com/vim-scripts/VimIM): stop maintenance
+- [ZFVimIM](https://github.com/ZSaberLv0/ZFVimIM): a rewrite of vimIM
 
 ## Dependencies
 

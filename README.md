@@ -115,12 +115,12 @@ Some Vim plugins use CLI:
 - This plugin: support
   - fcitx5: with or without rime input schema
   - ibus
-  - gnome-shell: `gnome-shell >= 41` regards getting IME information as unsafe
-    behaviour and
+  - gnome-shell: you can get IME information from gnome-shell whatever you use
+    which IME. However, `gnome-shell >= 41` regards getting IME information as
+    an unsafe behaviour and
     [forbids it](https://github.com/lyokha/g3kb-switch#gnome-45-and-newer).
     Try [unsafe-mode-menu](https://github.com/linushdot/unsafe-mode-menu)
-  - g3kb-switch: use a gnome extension to bypass unsafe behaviour of
-    gnome-shell.
+  - g3kb-switch: use a gnome extension to bypass the prohibit of gnome-shell.
 
 ### single-mode IME
 

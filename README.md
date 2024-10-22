@@ -174,14 +174,19 @@ We can create:
 
 ##### Manage popup menu by itself
 
-Manage popup menu by itself will result in
-[the conflict with other editor plugins which manage the popup menu](https://github.com/neoclide/coc-snippets/issues/137),
-such as LSP framework.
+Manage popup menu by itself will result in the conflict with other editor
+plugins which manage the popup menu.
+At the same time, you must enable one of them.
 
 > Sorry, you have to make the choice.
+>
+> -- [coc-snippets](https://github.com/neoclide/coc-snippets/issues/137)
 
 - [vimIM](https://github.com/vim-scripts/VimIM): stop maintenance
-- [ZFVimIM](https://github.com/ZSaberLv0/ZFVimIM): a rewrite of vimIM
+- [ZFVimIM](https://github.com/ZSaberLv0/ZFVimIM): a rewrite of vimIM.
+  It will
+  [disable most completion plugins](https://github.com/ZSaberLv0/ZFVimIM/blob/master/plugin/ZFVimIM_autoDisable.vim)
+  when it is enabled.
 
 ## Dependencies
 

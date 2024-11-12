@@ -37,6 +37,9 @@ build = {
   install = {
       conf = {
           ['..'] = 'shell.nix'
-      }
+      },
+      lua = {
+          ['ime'] = 'lua/ime/get-GI_TYPELIB_PATH.nix'
+      },
   }
 }

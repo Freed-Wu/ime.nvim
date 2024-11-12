@@ -4,7 +4,7 @@ if vim and vim.env.GI_TYPELIB_PATH == nil then
     local f = io.open("/run/current-system/nixos-version")
     if f then
         f:close()
-        f = io.popen(vim.fs.joinpath(
+        f = io.popen("nix eval --impure -f " .. vim.fs.joinpath(
             vim.fs.dirname(debug.getinfo(1).source:match("@?(.*)")),
             "get-GI_TYPELIB_PATH.nix"
         ))

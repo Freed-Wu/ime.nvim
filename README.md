@@ -237,8 +237,18 @@ $ luarocks --lua-version 5.1 --local --tree ~/.local/share/nvim/rocks install im
 
 ## Tips
 
-- For NixOS, `require'dbus_proxy'` needs correct `vim.env.GI_TYPELIB_PATH`. This
-  plugin will do it out of box.
 - For Nix user, run
   `/the/path/of/luarocks/rocks-5.1/ime.nvim/VERSION/scripts/update.sh`
   when dynamic link libraries are broken after `nix-collect-garbage -d`.
+- For NixOS, `require'dbus_proxy'` needs correct `vim.env.GI_TYPELIB_PATH`. This
+  plugin will do it out of box. You also can add the following code to
+  `.bash_profile` to run once to speed up:
+
+```sh
+if [[ -f /run/current-system/nixos-version ]]; then
+  if [[ -f /the/path/lua/5.1/ime/get-GI_TYPELIB_PATH.nix ]]; then
+    export GI_TYPELIB_PATH
+    eval GI_TYPELIB_PATH="$(nix eval --impure -f ~/.local/share/lua/5.1/ime/get-GI_TYPELIB_PATH.nix)"
+  fi
+fi
+```

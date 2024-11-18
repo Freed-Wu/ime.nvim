@@ -95,15 +95,27 @@ Some IMEs provide a CLI program to switch mode.
 - [macism](https://github.com/laishulu/macism): for macOS
 - [im-select](https://github.com/daipeihust/im-select): for macOS and Windows
 - `ibus engine`: for ibus
-- `g3kb-switch`: for ibus, and provide a DLL
-- `xkb-switch`: for xim, and provide a DLL
 - `fcitx-remote`: for fcitx5
+- [`g3kb-switch`](https://github.com/lyokha/g3kb-switch): for ibus, and provide
+  a DLL
+- [`xkb-switch`](https://github.com/grwlf/xkb-switch): for xim, and provide a
+  DLL
+- [`xkb-switch` (for macOS)](https://github.com/myshov/xkbswitch-macosx): for
+  macOS, and provide a DLL
 
 Some Vim plugins use CLI:
 
 - [nvim-auto-ime](https://github.com/crispgm/nvim-auto-ime): only support macism
+- [coc-imselect](https://github.com/neoclide/coc-imselect): only support
+  im-select
 - [im-select.nvim](https://github.com/keaising/im-select.nvim): support
-  im-select, ibus, fcitx
+  im-select, ibus engine, fcitx-remote
+- [alohaia/fcitx.nvim](https://github.com/alohaia/fcitx.nvim): only support
+  fcitx-remote
+- [h-hg/fcitx.nvim](https://github.com/h-hg/fcitx.nvim): only support
+  fcitx-remote
+- [vim-barbaric](https://github.com/rlue/vim-barbaric): support ibus engine,
+  fcitx-remote, xkb-switch
 
 ##### dbus
 

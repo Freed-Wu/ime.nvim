@@ -33,10 +33,11 @@ end
 
 build = {
   type = 'builtin',
-  copy_directories = { 'plugin', 'scripts' },
+  copy_directories = { 'plugin' },
   install = {
       conf = {
-          ['..'] = 'shell.nix'
+          ['..'] = 'shell.nix',
+          ['../scripts/update.sh'] = 'scripts/update.sh',
       },
       lua = {
           ['ime'] = 'lua/ime/get-GI_TYPELIB_PATH.nix'

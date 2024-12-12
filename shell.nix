@@ -1,10 +1,20 @@
-{ pkgs ? import <nixpkgs> { } }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 with pkgs;
 mkShell {
-  name = "shm";
+  name = "ime.nvim";
   buildInputs = [
     gobject-introspection
+    stdenv.cc
     pkg-config
+
+    (luajit.withPackages (
+      p: with p; [
+        busted
+        ldoc
+      ]
+    ))
   ];
 }

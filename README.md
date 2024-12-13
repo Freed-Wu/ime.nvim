@@ -1,5 +1,6 @@
 # ime.nvim
 
+[![readthedocs](https://shields.io/readthedocs/ime-nvim)](https://ime-nvim.readthedocs.io)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Freed-Wu/ime.nvim/main.svg)](https://results.pre-commit.ci/latest/github/Freed-Wu/ime.nvim/main)
 [![github/workflow](https://github.com/Freed-Wu/ime.nvim/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu/ime.nvim/actions)
 

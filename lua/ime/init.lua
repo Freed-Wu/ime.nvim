@@ -1,5 +1,6 @@
--- luacheck: ignore 111 113
+---select a backend if available
 ---@diagnostic disable: undefined-global
+-- luacheck: ignore 111 113
 if vim and vim.env.GI_TYPELIB_PATH == nil then
     local f = io.open("/run/current-system/nixos-version")
     if f then

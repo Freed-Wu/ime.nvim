@@ -1,5 +1,6 @@
--- luacheck: ignore 112 113 212/self
+---backend for ibus
 ---@diagnostic disable: undefined-global
+-- luacheck: ignore 112 113 212/self
 local lgi = require "lgi"
 local p = require "dbus_proxy"
 local DBUS_SESSION_BUS_ADDRESS = ""
@@ -31,18 +32,24 @@ local M = {
     non_ascii_kbd = "rime"
 }
 
+---enable ascii mode
 function M:enable_ascii()
     M.proxy:SetGlobalEngine(M.ascii_kbd)
 end
 
+---disable ascii mode
 function M:disable_ascii()
     M.proxy:SetGlobalEngine(M.non_ascii_kbd)
 end
 
+---judge if ascii mode
+---@return boolean
 function M:is_ascii()
     return M.proxy:GetGlobalEngine()[3] == M.ascii_kbd
 end
 
+---get current input schema name
+---@return string
 function M:current()
     return M.proxy:GetGlobalEngine()[3]:gsub("xkb:", ""):gsub("::.*", "")
 end
